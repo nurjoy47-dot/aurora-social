@@ -34,15 +34,17 @@ jobs:
           cp package.json dist/
           cp package-lock.json dist/
           cp server.js dist/
+          cd dist
+          npm ci --omit=dev
 
-      - name: Install production dependencies
+      - name: Create deployment zip
         run: |
           cd dist
-          npm ci --production
+          zip -r ../deploy.zip .
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
+          app-name: aurora-social-a3g0ckbhe3b4ftc9
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ./dist
+          package: deploy.zip
