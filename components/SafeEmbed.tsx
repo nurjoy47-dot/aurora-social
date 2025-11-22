@@ -101,7 +101,7 @@ export const SafeEmbed: React.FC<SafeEmbedProps> = ({ content, platform, variant
     if (shouldTryIframely) {
       setIsLoading(true);
       // omit_script=1 prevents the API from sending the script tag again (we have it in index.html)
-      fetch(`https://iframe.ly/api/iframely?url=${encodeURIComponent(trimmed)}&key=${IFRAMELY_API_KEY}&omit_script=1`) 
+      fetch(`https://iframe.ly/api/oembed?url=${encodeURIComponent(trimmed)}&api_key=${IFRAMELY_API_KEY}&omit_script=1`) 
         .then(res => {
           if (!res.ok) throw new Error(`API Error: ${res.status}`);
           return res.json();
