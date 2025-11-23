@@ -2,7 +2,7 @@
 import { Platform } from './types';
 
 // USING THE CLIENT KEY HASH (MD5) FOR BROWSER USAGE
-export const IFRAMELY_API_KEY = '1894b83a4759148b1a5db07bba5058e5'; 
+export const IFRAMELY_API_KEY = '22823aace0d77c6b9fd20984a04a955a'; 
 
 export const PLATFORM_COLORS: Record<Platform, string> = {
   [Platform.FacebookPage]: '#1877F2',
